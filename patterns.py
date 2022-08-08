@@ -19,13 +19,15 @@ def colora(element):
 
 def patternI():
     array = [1, 0, 0, 1, 0, 0, 1, 0, 0]
-    matrix = create(3, 3, array)
+    pattern = create(3, 3, array)
     for i in range(3):
         for j in range(3):
-            col_element = colora(matrix[i][j])
+            col_element = colora(pattern[i][j])
             print(col_element, end=" ")
+            #print(pattern[i][j], end=" ")
         print()
-    print('\u001b[00mPattern trovato (simile a una I), ruotato a 0°')
+    return pattern
+    #print('\u001b[00mPattern trovato (simile a una I), ruotato a 0°')
 
 
 # def patternL():
@@ -59,6 +61,8 @@ def patternI():
 #          print(col_element, end=" ")
 #      print()
 #     print('\u001b[00mPattern trovato (simile a una T), ruotato a 0°')
+
+
 
 #patternI()
 #patternL()

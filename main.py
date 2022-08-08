@@ -18,7 +18,7 @@ import patterns
 def matrix():
     #m = int(input("How many columns?"))
     #n = int(input("How many rows?"))
-    m = 5
+    m = 6
     n = 5
     array = [0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 0]
     matrix = patterns.create(n, m, array)
@@ -32,12 +32,28 @@ def matrix():
 
 
 def main():
+    print("pattern di ricerca:")
     pattern = patterns.patternI()
+    print("\r")
+
+    print("matrice:")
     matrice = matrix()
-    if pattern in matrice:
-        print("c'è")
-    else:
-        print("non c'è")
+    print("\r")
+
+    i = 0
+    j = 0
+    elemento = None
+    print("risultato:")
+    for i in range(len(matrice)-len(pattern)+1):
+        for j in range(len(matrice[i])-len(pattern[i])):
+            if pattern[i][j] == matrice[i][j]:
+                elemento = patterns.colora(matrice[i][j])
+                matrice[i][j]=elemento
+                #print(elemento)
+                #print("\u001b[00m - posizione ("+str(i)+", "+str(j)+")")
+            print(matrice[i][j], end=" ")
+        print("\r")
+
 
 
 main()
