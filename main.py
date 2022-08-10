@@ -1,5 +1,5 @@
 import patterns
-
+import ricerca
 
 # def create(n, m, data):
 #     matrix = []
@@ -16,19 +16,18 @@ import patterns
 
 # imposto la lista, creo la matrice e stampo le righe una sotto l'altra
 def matrix():
-    #m = int(input("How many columns?"))
-    #n = int(input("How many rows?"))
-    m = 6
-    n = 5
+    m = int(input("Quante colonne (massimo 6)?"))
+    n = int(input("Quante righe (massimo 6)? "))
+    #m = 6
+    #n = 5
     array = [0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 0]
     matrix = patterns.create(n, m, array)
-    #print(matrix)
+    #print (len(array))
     for i in range(n):
         for j in range(m):
             print(matrix[i][j], end=" ")
         print()
     return matrix
-
 
 
 def main():
@@ -40,20 +39,8 @@ def main():
     matrice = matrix()
     print("\r")
 
-    i = 0
-    j = 0
-    elemento = None
     print("risultato:")
-    for i in range(len(matrice)-len(pattern)+1):
-        for j in range(len(matrice[i])-len(pattern[i])):
-            if pattern[i][j] == matrice[i][j]:
-                elemento = patterns.colora(matrice[i][j])
-                matrice[i][j]=elemento
-                #print(elemento)
-                #print("\u001b[00m - posizione ("+str(i)+", "+str(j)+")")
-            print(matrice[i][j], end=" ")
-        print("\r")
-
+    ricerca.ricerca(pattern, matrice)
 
 
 main()

@@ -9,6 +9,7 @@ def create(n, m, data):
         matrix.append(row)
     return matrix
 
+
 # funzione per colorare gli elementi che corrispondono ad 1 e che fanno parte del pattern
 def colora(element):
     if element == 1:
@@ -17,6 +18,7 @@ def colora(element):
         element = '\u001b[00m0'
     return element
 
+
 def patternI():
     array = [1, 0, 0, 1, 0, 0, 1, 0, 0]
     pattern = create(3, 3, array)
@@ -24,10 +26,10 @@ def patternI():
         for j in range(3):
             col_element = colora(pattern[i][j])
             print(col_element, end=" ")
-            #print(pattern[i][j], end=" ")
+            # print(pattern[i][j], end=" ")
         print()
     return pattern
-    #print('\u001b[00mPattern trovato (simile a una I), ruotato a 0°')
+    # print('\u001b[00mPattern trovato (simile a una I), ruotato a 0°')
 
 
 # def patternL():
@@ -62,10 +64,8 @@ def patternI():
 #      print()
 #     print('\u001b[00mPattern trovato (simile a una T), ruotato a 0°')
 
-
-
-#patternI()
-#patternL()
-#patternC()
-#patternT()
+# patternI()
+# patternL()
+# patternC()
+# patternT()
 
