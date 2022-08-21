@@ -12,13 +12,11 @@ import ricerca
 #     return matrix
 
 
-
-
 # imposto la lista, creo la matrice e stampo le righe una sotto l'altra
-def matrix():
-    m = int(input("Quante colonne (massimo 6)?"))
-    n = int(input("Quante righe (massimo 6)? "))
-    #m = 6
+def matrix(m, n):
+    #m = int(input("Quante colonne (massimo 6)?"))
+    #n = int(input("Quante righe (massimo 6)? "))
+    #m = 5
     #n = 5
     array = [0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 0]
     matrix = patterns.create(n, m, array)
@@ -36,11 +34,14 @@ def main():
     print("\r")
 
     print("matrice:")
-    matrice = matrix()
+    m = int(input("Quante colonne (massimo 6)?"))
+    n = int(input("Quante righe (massimo 6)? "))
+    matrice = matrix(m, n)
     print("\r")
 
-    print("risultato:")
-    ricerca.ricerca(pattern, matrice)
+    print("risultato: Abbiamo trovato la I in:")
+    newArray = ricerca.ricerca(pattern, matrice, m, n)
+    return 
 
 
 main()

@@ -10,12 +10,17 @@ def create(n, m, data):
     return matrix
 
 
+class bcolors:
+    OK = '\u001b[00m' #bianco
+    HIGHLIGHT = '\u001b[36m' #blu
+    RESET = '\033[0m'  # RESET COLOR
+
 # funzione per colorare gli elementi che corrispondono ad 1 e che fanno parte del pattern
-def colora(element):
-    if element == 1:
-        element = '\u001b[36m1'
-    elif element == 0:
-        element = '\u001b[00m0'
+def colora(element,come):
+    if come == "OK":
+        element = bcolors.OK + str(element) + bcolors.RESET
+    if come=="COL":
+        element = bcolors.HIGHLIGHT + str(element) + bcolors.RESET  # '\u001b[36m1'
     return element
 
 
@@ -24,7 +29,11 @@ def patternI():
     pattern = create(3, 3, array)
     for i in range(3):
         for j in range(3):
-            col_element = colora(pattern[i][j])
+            #col_element = colora(pattern[i][j])
+            if pattern[i][j] == 1:
+                col_element = colora(pattern[i][j], "COL")
+            else:
+                col_element = colora(pattern[i][j], "OK")
             print(col_element, end=" ")
             # print(pattern[i][j], end=" ")
         print()
