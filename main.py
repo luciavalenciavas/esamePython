@@ -1,28 +1,11 @@
 import patterns
 import ricerca
 
-# def create(n, m, data):
-#     matrix = []
-#     for i in range(n): #n=rows number
-#         row = []
-#         for j in range(m): #m=columns number
-#             if data[j] not in matrix:
-#                 row.append(data[m * i + j])
-#         matrix.append(row)
-#     return matrix
 
-
-
-
-# imposto la lista, creo la matrice e stampo le righe una sotto l'altra
-def matrix():
-    m = int(input("Quante colonne (massimo 6)?"))
-    n = int(input("Quante righe (massimo 6)? "))
-    #m = 6
-    #n = 5
+# creo la matrice in base ai parametri dell'utente partendo da un array di 0 e 1
+def matrix(m, n):
     array = [0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 0]
     matrix = patterns.create(n, m, array)
-    #print (len(array))
     for i in range(n):
         for j in range(m):
             print(matrix[i][j], end=" ")
@@ -36,11 +19,14 @@ def main():
     print("\r")
 
     print("matrice:")
-    matrice = matrix()
+    m = int(input("Quante colonne (valore compreso tra 3 e 6)?"))
+    n = int(input("Quante righe (valore compreso tra 3 e 6)? "))
+    matrice = matrix(m, n)
     print("\r")
 
-    print("risultato:")
-    ricerca.ricerca(pattern, matrice)
+    print("Abbiamo trovato la "+patterns.colora("I", "COL")+" in:")
+    ricerca.ricerca(pattern, matrice, m, n)
+    return 
 
 
 main()
